@@ -1,13 +1,9 @@
 package CodSoft;
-
 import java.util.Scanner;
 
 public class StudentGradeCalculator {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        // Input: Take marks obtained in each subject
         System.out.println("Enter marks obtained (out of 100) in each subject:");
         int numSubjects = 5; // You can change this based on the actual number of subjects
         int[] marks = new int[numSubjects];
@@ -16,28 +12,18 @@ public class StudentGradeCalculator {
             System.out.print("Subject " + (i + 1) + ": ");
             marks[i] = scanner.nextInt();
         }
-
-        // Calculate Total Marks
         int totalMarks = 0;
         for (int mark : marks) {
             totalMarks += mark;
         }
-
-        // Calculate Average Percentage
         double averagePercentage = (double) totalMarks / numSubjects;
-
-        // Grade Calculation
         char grade = calculateGrade(averagePercentage);
-
-        // Display Results
         System.out.println("\nResults:");
         System.out.println("Total Marks: " + totalMarks);
         System.out.println("Average Percentage: " + averagePercentage + "%");
         System.out.println("Grade: " + grade);
-
         scanner.close();
     }
-
     private static char calculateGrade(double averagePercentage) {
         if (averagePercentage >= 90) {
             return 'A';
